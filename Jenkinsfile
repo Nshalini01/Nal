@@ -23,7 +23,7 @@ node {
       def webAppName = '<Azure90>'
       // login Azure
 withCredentials([azureServicePrincipal('Azure')]) {
-    sh 'az login --service-principal -u $00c2f55b-a483-4fac-b021-a9b4e38c8c4b -p $9371e786-62a4-45f6-b7d3-22cea71787e0 -t $560b7aca-e146-41fc-b4a3-0a452e257b10'
+    sh 'az login --service-principal -u $00c2f55b-a483-4fac-b021-a9b4e38c8c4b -p $9371e786-62a4-45f6-b7d3-22cea71787e0 -t $AZURE_TENANT_ID'
 }
       // get publish settings
       def pubProfilesJson = sh script: "az webapp deployment list-publishing-profiles -g $resourceGroup -n $webAppName", returnStdout: true
